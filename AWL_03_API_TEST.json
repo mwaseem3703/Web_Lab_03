@@ -1,0 +1,144 @@
+{
+"info": {
+"name": "E-Commerce API (REST & GraphQL)",
+"description": "Test collection for the E-Commerce API assignment.",
+"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+},
+"item": [
+{
+"name": "1. REST - Get All Products",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/v1/products",
+"protocol": "http",
+"host": ["localhost"],
+"port": "5000",
+"path": ["api", "v1", "products"]
+}
+}
+},
+{
+"name": "2. REST - Get Single Product",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/v1/products/1",
+"protocol": "http",
+"host": ["localhost"],
+"port": "5000",
+"path": ["api", "v1", "products", "1"]
+}
+}
+},
+{
+"name": "3. REST - Create Product (POST)",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json",
+"type": "text"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  "name": "Gaming Mouse",\n  "price": 49.99,\n  "category": "Electronics"\n}"
+},
+"url": {
+"raw": "http://localhost:5000/api/v1/products",
+"protocol": "http",
+"host": ["localhost"],
+"port": "5000",
+"path": ["api", "v1", "products"]
+}
+}
+},
+{
+"name": "4. REST - Test 400 Error (Missing Price)",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json",
+"type": "text"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  "name": "Broken Product",\n  "category": "Home"\n}"
+},
+"url": {
+"raw": "http://localhost:5000/api/v1/products",
+"protocol": "http",
+"host": ["localhost"],
+"port": "5000",
+"path": ["api", "v1", "products"]
+}
+}
+},
+{
+"name": "5. REST - Update Product (PUT)",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json",
+"type": "text"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  "name": "Upgraded Wireless Headphones",\n  "price": 109.99,\n  "category": "Electronics"\n}"
+},
+"url": {
+"raw": "http://localhost:5000/api/v1/products/1",
+"protocol": "http",
+"host": ["localhost"],
+"port": "5000",
+"path": ["api", "v1", "products", "1"]
+}
+}
+},
+{
+"name": "6. REST - Delete Product (DELETE)",
+"request": {
+"method": "DELETE",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/v1/products/2",
+"protocol": "http",
+"host": ["localhost"],
+"port": "5000",
+"path": ["api", "v1", "products", "2"]
+}
+}
+},
+{
+"name": "7. GraphQL - Test Over-fetching",
+"request": {
+"method": "POST",
+"header": [],
+"body": {
+"mode": "graphql",
+"graphql": {
+"query": "query {\n  products {\n    name\n    price\n  }\n}",
+"variables": ""
+}
+},
+"url": {
+"raw": "http://localhost:5000/graphql",
+"protocol": "http",
+"host": ["localhost"],
+"port": "5000",
+"path": ["graphql"]
+}
+}
+}
+]
+}
